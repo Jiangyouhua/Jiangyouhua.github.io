@@ -87,18 +87,18 @@ JPreview.prototype.forContent = function() {
  */
 JPreview.prototype._data = [
     {
-        image:"./Examples/ui/image/web1.png",
+        image:"./examples/ui/image/web1.png",
         title:"Jiang",
         text:"JPreview组件，是用来呈现图文预览， 元素有图片，标题，内容，按从上到下的方式排列，三项元素必须存在一个。"
     },
     {
-        image:"./Examples/ui/image/web2.png",
+        image:"./examples/ui/image/web2.png",
         title:"You",
 
         text:"JPreview组件，是用来呈现图文预览， 元素有图片，标题，内容，按从上到下的方式排列，三项元素必须存在一个。"
     },
     {
-        image:"./Examples/ui/image/web3.png",
+        image:"./examples/ui/image/web3.png",
         title:"Hua",
         text:"JPreview组件，是用来呈现图文预览， 元素有图片，标题，内容，按从上到下的方式排列，三项元素必须存在一个。"
     },

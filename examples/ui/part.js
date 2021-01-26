@@ -29,10 +29,10 @@ jp.load = [
 
 // Navigation
 jp.nav = [
-    {text:"首页", href:"./Examples/_index.html", onclick:"jp.loadPage(this)", "data-affect":"#body"},
-    {text:"文档", href:"./Examples/document.html", onclick:"jp.loadPage(this)", "data-affect":"#body"},
-    {text:"示例", href:"./Examples/editor.html", onclick:"jp.loadPage(this)", "data-affect":"#body"},
-    {text:"下载", href:"./Examples/download.html", onclick:"jp.loadPage(this)", "data-affect":"#body"}
+    {text:"首页", href:"./examples/_index.html", onclick:"jp.loadPage(this)", "data-affect":"#body"},
+    {text:"文档", href:"./examples/document.html", onclick:"jp.loadPage(this)", "data-affect":"#body"},
+    {text:"示例", href:"./examples/editor.html", onclick:"jp.loadPage(this)", "data-affect":"#body"},
+    {text:"下载", href:"./examples/download.html", onclick:"jp.loadPage(this)", "data-affect":"#body"}
 ];
 
 // index.html
@@ -44,18 +44,18 @@ jp.banner1 = {
 
 jp.preview = [
     {
-        // image:"./Examples/ui/image/web1.png",
+        // image:"./examples/ui/image/web1.png",
         title:"极简的",
         text:"<span data-source='$jp.logo'></span> 是如此的简单：您甚至不需要熟悉HTML、CSS、JavaScript，您只需要花1分钟的时间去了解它，再花一分钟的时间去尝试它。就这样，您就可以在您需要的时候去使用它，它的表现会让您很幸福。"
     },
     {
-        // image:"./Examples/ui/image/web2.png",
+        // image:"./examples/ui/image/web2.png",
         title:"快捷的",
 
         text:"<span data-source='$jp.logo'></span> 用于快速的，高效的构建您的前端程序：您只需要先去下载它，然后引用它，最后连接数据源并设置它，您就已经使用上了它。这同时意味，您也已经完成了您前端的所有工作。"
     },
     {
-        // image:"./Examples/ui/image/web3.png",
+        // image:"./examples/ui/image/web3.png",
         title:"重用的",
         text:"<span data-source='$jp.logo'></span> 的重心是组件化设计，所有的组件均可以重复使用：页面的每一部分都可以是组件，如导航、列表、文章预览、全文阅读、广告轮播等等。这些设计好的组件，可以被您和您的朋友重复使用在页面的各个位置。"
     },
@@ -172,11 +172,11 @@ jp.code = {
         "&lt;/script&gt;<br>\n" +
         "&lt;div <b>data-source='$jp.docValue'</b>&gt;&lt;/div&gt;",
     file:"&lt;script&gt;<br>\n" +
-        "<b>jp.docFile</b> = '/jpart/Examples/file/info.txt';<br>\n" +
+        "<b>jp.docFile</b> = '/jpart/examples/file/info.txt';<br>\n" +
         "&lt;/script&gt;<br>\n" +
         "&lt;div <b>data-source='$jp.docFile'</b>&gt;&lt;/div&gt;",
     ajax:"&lt;script&gt;<br>\n" +
-        "<b>jp.docAjax</b> = '/jpart/Examples/file/value.json';<br>\n" +
+        "<b>jp.docAjax</b> = '/jpart/examples/file/value.json';<br>\n" +
         "&lt;/script&gt;<br>\n" +
         "&lt;div <b>data-source='$jp.docAjax'</b>&gt;&lt;/div&gt;",
     input:"&lt;input autocomplete='off' type='text' <b>data-source='jpart'</b> /&gt;",
@@ -186,7 +186,7 @@ jp.code = {
         "&nbsp;&nbsp;&nbsp;&lt;option value='2'&gt; Vue &lt;/option&gt;<br>\n" +
         "&nbsp;&nbsp;&nbsp;&lt;option value='3'&gt; jpart &lt;/option&gt;<br>\n" +
         "&lt;/select&gt;",
-    img: "&lt;img <b>data-source='/jpart/Examples/ui/image/logo.png'</b> /&gt;",
+    img: "&lt;img <b>data-source='/jpart/examples/ui/image/logo.png'</b> /&gt;",
     func:"&lt;script&gt;<br>\n" +
         "<b>jp.docFunc = function(data)</b>{<br>\n" +
         "&nbsp;&nbsp;&nbsp;return data + ': 我是JiangYouhua'; <br>\n" +
@@ -298,7 +298,7 @@ jp.code = {
  * @type {string}
  */
 
-jp.pageUrl = "./Examples/_index.html";
+jp.pageUrl = "./examples/_index.html";
 
 // 导航页面跳转
 jp.loadPage = function (it) {
