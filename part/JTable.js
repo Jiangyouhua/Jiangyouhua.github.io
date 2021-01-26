@@ -1,26 +1,17 @@
 /**
  * JTable, 表格
- * ** data 
- * 1. [{key:value, sub:it, other...}, ...]
- * 2. key任意项，至少有一项
- * 3. sub子项，结构与父项相同
- * ** config
- * 1. {keys:[string,], alias:[string,],sub:key,char:string }
- * 2. keys, 确定数据行中哪些字段显示在表格上
- * 3. alias, 该字段在表头上显示的名称
- * 4. sub, 确定在哪个字段显示级别
- * 5. char, 通过该字符以缩进的方式显示
+ * Jiangyouhua 32019.01.17
  */
 
 var JTable = function() {
-    Part.apply(this, arguments);
+    PART.apply(this, arguments);
     (function(self, args) {
         var a = Array.prototype.slice.call(args)
         self.SetArgs(a)
     })(this, arguments)
 }
 
-JTable.prototype = new Part()
+JTable.prototype = new PART()
 JTable.prototype.checkData = function() {
     // 空值
     if (!this._data) {

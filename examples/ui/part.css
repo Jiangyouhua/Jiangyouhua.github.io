@@ -1,0 +1,355 @@
+html{
+    font-size: 62.5%;
+}
+body,input,select,button{
+    font-size: 1.6rem;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+a:link {color: #000000; text-decoration:none}		/* 未被访问的链接 */
+a:visited {color: #000000; text-decoration:none}	/* 已被访问的链接 */
+a:hover {color: #333333; text-decoration:none}	/* 鼠标指针移动到链接上 */
+a:active {color:#000000; text-decoration:none}	/* 正在被点击的链接 */
+
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    margin: .5rem 0;
+}
+
+h1{
+    font-weight: normal;
+    color: #FF7D00;
+}
+
+h2{
+    font-weight: normal;
+    color: #1d396e;
+    line-height: 3rem;
+}
+
+h3{
+    font-weight: normal;
+    color: #444;
+}
+
+b{
+    font-weight: normal;
+    color: red;
+}
+
+strong{
+    font-weight: normal;
+    background-color: #fff000;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    display: inline-block;
+}
+
+code{
+    font-family: 'Consolas', sans-serif;
+    color: white;
+    background-color: #444;
+    padding: 1rem;
+    border-radius: .5rem;
+    display: inline-block;
+    text-align: left;
+    line-height: 2.0rem;
+}
+
+i {
+    color: #888;
+}
+
+select{
+    padding: .5rem;
+    margin: .5rem;
+    min-width: 17.5rem;
+    border-radius: .5rem;
+}
+
+input, button{
+    margin: .5rem;
+    border-radius: .5rem;
+    border: #aaa 1px solid;
+}
+
+input{
+    text-align: left;
+    padding: 0 .5rem;
+}
+
+button{
+    padding: .2rem 2rem;
+    min-width: 15rem;
+    background-color: #4CAF50;
+
+}
+
+button:active {
+    color: white;
+    background: #eee;
+}
+
+#head>div>div, #nav>div, #body>div, #tail>div{
+    display: inline-block;
+    width: 75%;
+    min-width: 100rem;
+    text-align: left;
+}
+
+#head{
+    background: #222;
+    color:#ddd;
+}
+
+#tail{
+    background: rgb(237, 237, 237);
+    min-height: 20rem;
+}
+
+.logo{
+    color: #00ffd4;
+    display: inline-block;
+    font-family: 'Abel', sans-serif;
+    text-align: right;
+    background: #222222;
+    padding: 0 .5rem;
+    border-radius: .5rem;
+    line-height: 2rem;
+}
+.logo span:first-child{
+    color: #FF7D00;
+}
+
+.big .logo{
+    line-height: 6rem;
+}
+
+.big>div:first-child .logo{
+    font-size: 5rem;
+}
+
+.big>div:last-child{
+    float: right;
+    padding-right: 3rem;
+}
+
+/* head */
+[data-part="JBanner"]{
+    line-height: 5rem;
+    height: 7rem;
+    margin-top: 2rem;
+}
+[data-part="JBanner"]>div>div:first-child{
+    display: inline;
+    margin-left: 3rem;
+}
+[data-part="JBanner"]>div>div:last-child{
+    display: inline;
+    white-space: nowrap;
+    font-family: 'lixukexingshu';
+}
+
+
+[data-part="JAd"]>div{
+    font-family: 'Indie Flower', cursive;
+    font-size: 20rem;
+    padding-top: 5rem;
+    line-height: 10rem;
+    text-align: center;
+}
+
+[data-part="JAd"] span{
+    display: inline-block;
+    width: .6rem;
+    height: .6rem;
+    border: #fff 1px solid;
+    border-radius: .3rem;
+    margin: 0rem 1rem;
+}
+
+div.load{
+    text-align: center;
+    margin: 2rem 0 8rem 0;
+}
+div.load div{
+    width: 40%;
+    display: inline-block;
+}
+
+div.load a{
+    display: inline;
+    padding: 1rem 5rem;
+    margin: 2rem;
+    background: #101010;
+    border-radius: 2.5rem;
+    color: white;
+}
+
+.navigation{
+    background: #00ffd4;
+}
+
+[data-part="JNavigation"] a{
+    display: inline-block;
+    line-height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+[data-part="JNavigation"] a.action{
+    border-bottom: #333333 .1rem solid;
+}
+
+/* body */
+/*index*/
+[data-part="JPreview"]>table{
+    width: 100%;
+    text-align: center;
+}
+
+[data-part="JPreview"]>table td{
+    padding: 5rem;
+    vertical-align: top;
+}
+
+[data-part="JPreview"] .image{
+    width: 100%;
+}
+
+[data-part="JPreview"] .title{
+    font-size: 4rem;
+    padding: 2rem 0;
+    border-bottom: #dddddd 1px solid;
+    color: #666;
+}
+
+[data-part="JPreview"] .text{
+    text-align: left;
+    padding-top: 3rem;
+}
+
+.banner{
+    background: #222222;
+    color: #ddd;
+}
+
+[data-part="JFullText"]{
+    padding: 6rem 0;
+}
+
+[data-part="JFullText"] .title{
+    text-align: center;
+    font-size: 5rem;
+    color: #666;
+}
+
+[data-part="JFullText"] .subtitle{
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 2rem;
+    color: #888888;
+}
+
+/* document */
+.document>table, .editor>table, .download>table{
+    margin-top: 18rem;
+    width: 100%;
+}
+
+.document td, .editor td {
+    vertical-align: top;
+}
+.document td:first-child{
+    width: 25rem;
+    padding-right: 3rem;
+    border-right: #ddd 1px solid
+}
+
+.document td:last-child{
+    padding-left: 3rem;
+}
+
+.document .left-side{
+    position: fixed;
+}
+
+.article a {
+    color: #3d80ff;
+}
+
+[data-part="JBanner"] .title {
+    margin-top: 5rem;
+    background: #222;
+    color: #dddddd;
+    text-align: center;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+}
+
+[data-part="JList"]>ul>li>a{
+    color: #FF7D00;
+    white-space: nowrap;
+}
+
+/* tail */
+#tail .text {
+    text-align: center;
+}
+
+table.example {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.example td{
+    border: #eee 1px solid;
+    text-align: center;
+    padding: .5rem;
+    vertical-align: middle;
+}
+
+.example td:first-child{
+    width: 10rem;
+    padding: 0 .5rem;
+}
+
+.example td:last-child{
+    padding: 1rem;
+}
+
+/*editor*/
+
+.editor td{
+    padding: 1rem;
+    width: 50%;
+}
+
+.editor td>div{
+     height: 50rem;
+     border: #dddddd 1px solid;
+ }
+
+.editor div#e{
+    font-family: 'Source Code Pro', sans-serif;
+    overflow-y: scroll;
+    padding: 1rem;
+    color: white;
+    background: #444;
+}
+
+.editor div#htmlShow{
+    overflow-y: scroll;
+    text-align: center;
+    padding: 1rem;
+}

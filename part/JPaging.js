@@ -13,14 +13,14 @@
  */
 
 var JPaging = function() {
-    Part.apply(this, arguments);
+    PART.apply(this, arguments);
     (function(self, args) {
         var a = Array.prototype.slice.call(args)
         self.SetArgs(a)
     })(this, arguments)
 }
 
-JPaging.prototype = new Part()
+JPaging.prototype = new PART()
 JPaging.prototype.checkData = function() {
     // 空值
     if (!this._data) {
