@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+        <meta charset="UTF-8" />
+<title>JPart-Exampless</title>
+<script src="/JPart/Part/JPartCore.js"></script>
+<script>
+    var _div = new HTML("div", "我是一个DIV对象")
+    var div = _div.String()
+    var _a = new HTML("a", "我是一个a对象", "onclick=alert('Is a!')", "href=#")
+    var a = _a.String()
+    var _input = new HTML("input", "", "type=text value=我是一个input对象")
+    var input = _input.String()
+    var _textarea = new HTML("textarea", "我是一个textarea对象")
+    var textarea = _textarea.String()
+</script>
+
+<body>
+    <a href="catalog.html">* JPart API及应用说明 *</a>
+    <br>
+    <h1>六、HTML类说明</h1>
+    <h2>1. 说明</h2>
+    <p>HTML为js用常规类型方式实现构建HTML节点，即: new HTML(), 得到HTML document节点实例</p>
+    <hr>
+    <ul>
+        <li>
+            <p>新建一个节点: new HTML(tag, content, attrs...)</p>
+            <ul>
+                <li>
+                    <p>div : new HTML("div","我是一个DIV对象")</p>
+                    <p data-source="$div"></p>
+                </li>
+                <li>
+                    <p>a : new HTML("a","我是一个a对象","onclick=alert('Is a!')", "href=#")</p>
+                    <p data-source="$a"></p>
+                </li>
+                <li>
+                    <p>input : new HTML("input","","type=text value=我是一个input对象")</p>
+                    <p data-source="$input"></p>
+                </li>
+                <li>
+                    <p>input : new HTML("textarea","我是一个textarea对象")</p>
+                    <p data-source="$textarea"></p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>HTML API</p>
+            <ul>
+                <li>
+                    <p>1.设置标签：SetTag(name)</p>
+                    <p>设置标签名称</p>
+                </li>
+                <li>
+                    <p>2.设置、添加属性：SetAttr(key, vlaue), AddAttr(key,value)</p>
+                    <p>设置属性，会清除已有属性，添加属性则保留已有属性</p>
+                </li>
+                <li>
+                    <p>3.设置、添加样式类型：SetClass(vlaue...), AddClass(value...)</p>
+                    <p>设置风格类型，会清除已有风格类型，添加风格类型则保留已有风格类型, 可同时添加多个</p>
+                </li>
+                <li>
+                    <p>4.设置、添加样式风格：SetCss(key, value), AddCss(key, value)</p>
+                    <p>设置样式风格，会清除已有样式风格，添加样式风格则保留已有样式风格</p>
+                </li>
+                <li>
+                    <p>5.设置、添加内容：SetContent(vlaue...), AddContent(value...)</p>
+                    <p>设置内容，会清除已有内容，添加内容则保留已有内容，可同时添加多个</p>
+                </li>
+                <li>
+                    <p>6.转为Document.Element对象：Element()</p>
+                    <p>将HTML对象转为Document.Element对象</p>
+                </li>
+                <li>
+                    <p>7.转为html字符串：String()</p>
+                    <p>将HTML对象转为转为html字符串</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

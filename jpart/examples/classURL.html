@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+        <meta charset="UTF-8" />
+<title>JPart-Exampless</title>
+<script src="/JPart/Part/JPartCore.js"></script>
+<script>
+    var _div = new HTML("div", "我是一个DIV对象")
+    var div = _div.String()
+    var _a = new HTML("a", "我是一个a对象", "onclick=alert('Is a!')", "href=#")
+    var a = _a.String()
+    var _input = new HTML("input", "", "type=text value=我是一个input对象")
+    var input = _input.String()
+</script>
+
+<body>
+    <a href="catalog.html">* JPart API及应用说明 *</a>
+    <hr>
+    <h1>六、URL类说明</h1>
+    <h2>1. 说明</h2>
+    <p>重构，更方便获取地址栏数据</p>
+    <br>
+    <ul>
+        <li>
+            <p>1. 获取当前url中search某个key的值：SearchGet(key)</p>
+        </li>
+        <li>
+            <p>2. 获取当前url中host的值：Host()</p>
+        </li>
+        <li>
+            <p>3. 获取当前url中pathname的值：Path()</p>
+        </li>
+        <li>
+            <p>4. 获取当前url中hash的值：Hash()</p>
+        </li>
+        <li>
+            <p>5. 获取当前url中Url的值：Url()</p>
+        </li>
+    </ul>
+</body>
+
+</html>

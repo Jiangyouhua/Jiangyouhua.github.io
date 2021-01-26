@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+        <meta charset="UTF-8" />
+<title>JPart-Exampless</title>
+<script src="/JPart/Part/JPartCore.js"></script>
+<script src="/JPart/Part/JList.js"></script>
+<script>
+    var partList = [{
+        text: "一、为HTML标签加载数据",
+        href: "loadData.html"
+    }, {
+        text: "二、数据主动更新",
+        href: "reactionData.html"
+    }, {
+        text: "三、html页面组件化",
+        href: "loadPage.html"
+    }, {
+        text: "四、表单提交",
+        href: "form.html"
+    },{
+        text: "五、内置定时隐藏提示条",
+        href: "coreAlert.html"
+    }, {
+        text: "六、现有组件库说明",
+        sub: [{
+            text: "1. 站点ICON组件",
+            href: "partIcon.html"
+        }, {
+            text: "2. 列表组件",
+            href: "partList.html"
+        }, {
+            text: "3. 表格组件",
+            href: "partTable.html"
+        }, {
+            text: "5. 文章组件",
+            href: "partArticle.html"
+        }, {
+            text: "6. 图片组件",
+            href: "partImage.html"
+        }, {
+            text: "7. 分页组件",
+            href: "partPaging.html"
+        }, ]
+    }, {
+        text: "七、HTML类说明",
+        href: "classHTML.html"
+    }, {
+        text: "八、Part类说明",
+        href: "classPart.html"
+    }, {
+        text: "九、Web类说明",
+        href: "classWeb.html"
+    }, {
+        text: "十、URL类说明",
+        href: "classUrl.html"
+    }]
+</script>
+
+<body>
+    <a href="index.html">* 返回首页 *</a>
+    <br>
+    <h1>JPart API及应用说明</h1>
+    <p data-source="JPart核心包库包含HTML，Part，Web, URL"></p>
+    <pre>
+<b>内置html标签属性有：</b>
+1、data-source = value：为该标签提供数据，value有$变量、@Ajax请求、[{json字符串}]、字面量
+2、data-part = value：使用JPart格式该标签，value为JPart子类
+3、data-func = value：data-source数据解析后，在输了前可经过该程序再处理，一般用来为JPart子类统一数格式
+4、data-back = value：data-source数据解析并输出后，调用该程序
+5、data-config = value：为JPart子类提供设置项
+6、data-form-action = value：form的action属性的JS实现，form专用
+7、data-form-filter = value: 指定form提交前的表单检查，form专用
+8、data-form-router = value: 指定form提交完成后的处理事件，form专用
+    </pre>
+    <hr>
+    <div data-part="JList" data-source="$partList"></div>
+</body>
+
+</html>

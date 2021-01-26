@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+        <meta charset="UTF-8" />
+<title>JPart-Exampless</title>
+<script src="/JPart/Part/JPartCore.js"></script>
+<script>
+    function router(data){
+        alert(data)
+    }
+</script>
+
+<body>
+    <a href="catalog.html">* JPart API及应用说明 *</a>
+    <br>
+    <h1>表单提交</h1>
+    <p>data-action:实现js提交表单，data-back:处理数据</p>
+    <hr>
+    <p>下面为示例代码， 单击下面的按钮，会显示该功能</p>
+    <code>&lt;form data-action=&quot;/back.php?handle=SMSCode&amp;func=Login&quot; data-back=&quot;alert&quot;&gt;
+        &lt;label for=&quot;phone&quot;&gt;帐户：&lt;/label&gt;&lt;input id=&quot;phone&quot; name=&quot;phone&quot;&gt;&lt;br&gt;
+        &lt;label for=&quot;code&quot;&gt;名称：&lt;/label&gt;&lt;input id=&quot;code&quot; name=&quot;code&quot;&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+    &lt;/form&gt;</code>
+    <br><br>
+    <form data-action="/back.php?handle=SMSCode&func=Login" data-back="router">
+        <label for="phone">帐户：</label><input id="phone" name="phone"><br>
+        <label for="code">名称：</label><input id="code" name="code"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+        <meta charset="UTF-8" />
+<title>JPart-Exampless</title>
+<script src="/JPart/Part/JPartCore.js"></script>
+<script src="/JPart/Part/JList.js"></script>
+<script>
+    var value = "我是JS变量"
+</script>
+
+<body>
+    <a href="catalog.html">* JPart API及应用说明 *</a>
+    <br>
+    <h1>一. 为当前标签加载数据</h1>
+    <div>HTML标签可以通过data-source="string"的方式，为自已绑定数。input为value赋值，img为src赋值，其它的innerHTML的值</div>
+    <hr>
+    <br>
+    <p><b>1. 加载字符串</b></p>
+    <code>
+        &lt;p data-source=&quot;JPart是一个HTML组件化应用的Javascript的库，用一种特别的方式实现组件的重用&quot;&gt;&lt;/p&gt;
+    </code>
+    <p data-source="JPart是一个HTML组件化应用的Javascript的库，用一种特别的方式实现组件的重用"></p>
+    <br>
+    <p><b>2. 加载JS变量，加$</b></p>
+    <code>
+        &lt;script&gt;
+            var value = &quot;我是JS变量&quot;
+        &lt;/script&gt;
+    </code>
+    <br>
+    <code>
+        &lt;input type=&quot;text&quot; data-source=&quot;$value&quot;&gt;&lt;/p&gt;
+    </code>
+    <br><br>
+    <input type="text" data-source="$value"></p>
+
+    <br>
+    <p><b>3. 加载AJAX数据，加@，</b></p>
+    <code>
+        a. &lt;div data-source=&quot;@../Data/d01.txt&quot;&gt;&lt;/div&gt;<br>
+        b. &lt;div data-source=&quot;@../Data/d01.html&quot;&gt;&lt;/div&gt;<br>
+        c. &lt;div data-source=&quot;@../Data/d01.js&quot;&gt;&lt;/div&gt;<br>
+    </code>
+    <br>
+    <div>a. <span data-source="@../Data/d01.txt"></span></div>
+    <div>b. <span data-source="@../Data/d01.html"></span></div>
+    <div>c. 跳出对话框<span data-source="@../Data/d01.js"></span></div>
+    <br>
+    <br>
+    <p><b>4. 将Json数据直接写在HTML标签内</b></p>
+    <code>
+        &lt;div data-part=&quot;JList&quot; data-source=&#x27;[{&quot;text&quot;:&quot;Home&quot;},{&quot;text&quot;:&quot;Other&quot;}]&#x27;&gt;&lt;/div&gt;
+    </code>
+    <br><br>
+    <div data-part="JList" data-source='[{"text":"Home"},{"text":"Other"}]'></div>
+</body>
+
+</html>

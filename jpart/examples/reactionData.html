@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+        <meta charset="UTF-8" />
+<title>JPart-Exampless</title>
+<script src="/JPart/Part/JPartCore.js"></script>
+
+<body>
+    <a href="catalog.html">* JPart API及应用说明 *</a>
+    <br>
+    <h1>二、数据主动更新</h1>
+    <div>1. 在B的&lt;input&gt;内添加data-source=$user, 表示该value值将需要user值, user的值来自两个地方, 首选是js是否存在该变量，存在则赋于；不存在，则看是否有该name的表单，存在则赋，不存在则值为空。<br> 2. 设置A的&lt;input&gt;的name属性为user，说明B可以从A获取值。<br> 3. 在A中设置鼠标监听事件onkeyup，通过该事件主动的调用Web.Parse('.update'), 表示将'.update'选刊器内有JPart应用的都重新解析一下，完成数据主动更新过程</div>
+    <hr>
+    <code>
+        A：&lt;input type=&quot;text&quot; name=&quot;user&quot; value=&quot;&quot; onkeyup=&quot;Web.Parse(&#x27;.update&#x27;)&quot;&gt;
+    <br>B：&lt;input type=&quot;text&quot; name=&quot;my&quot; data-source=&quot;$user&quot; value=&quot;&quot; class=&quot;update&quot;&gt;
+    </code>
+    <br>
+    <p>在A输入框输入数据，B输入框将作相应的变化</p>
+    <p>A：<input type="text" name="user" value="" onkeyup="Web.Parse('.update')"></p>
+    <p>B：<input type="text" name="my" data-source="$user" value="" class="update"></p>
+</body>
+
+</html>
