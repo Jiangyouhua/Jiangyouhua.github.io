@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset='UTF-8' />
+<script src='./jpart/_partcore.js'></script>
+<script src='./jpart/jarticle.js'></script>
+<script src='./jpart/jlogo.js'></script>
+<script src='./jpart/jlist.js'></script>
+<script src='./jpart/jnavigation.js'></script>
+<script src="./jpart/jguide.js"></script>
+<script src="./jpart/jpaging.js"></script>
+<script src="./jpart/jpreviews.js"></script>
+<script src="./jpart/jslideshow.js"></script>
+<script src="./jpart/jtable.js"></script>
+<script src='./file/data.js'></script>
+<link rel='stylesheet' href="./file/part.css">
+<link rel="stylesheet" href="https://fonts.font.im/css?family=Abel|Indie+Flower|lixukexingshu;" >
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<title>JPart</title>
+<body>
+    <div data-source='./file/head.html'></div>
+    <table class="content">
+        <tr>
+            <td  width=30% valign='top'>
+                <br>
+                <div data-source="${catalog}" data-part="JList()" ></div>
+            </td>
+            <td data-source="${guide}" data-part='JGuide()' valign='top'></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br><br>
+                <hr />
+                <div data-source="${tail}" data-part="JArticle(1, 'h3', 'h4', 'center', 'center')"></div>
+            </td>
+        </tr>
+    </table>
+    <div class="fixed"><a href='#about'>TOP</a></div>
+</body>
+
+</html>

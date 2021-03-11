@@ -1,0 +1,59 @@
+*:not(ul, ol) {
+    margin: 0;
+    padding: 0;
+    line-height:200%;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif；
+}
+
+pre{
+    white-space:pre-wrap;
+    white-space:-moz-pre-wrap;
+    white-space:-pre-wrap;
+    white-space:-o-pre-wrap;
+    word-wrap:break-word;
+}
+
+textarea{
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.head {
+    padding: 20px 10%;
+    background-color: #222;
+    color: #eee;
+}
+
+.navigation {
+    padding: 0 10%;
+    background-color: rgb(60, 214, 214);
+}
+
+.content {
+    padding: 0 10%;
+}
+
+table.content {
+    display: inline-block;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 10%;
+    height: 60px;
+    width: 60px;
+}
+
+.fixed a {
+    color: black;
+    display: block;
+    text-decoration: none;
+    background-color: yellowgreen; 
+    line-height: 60px;
+    text-align: center;
+}
