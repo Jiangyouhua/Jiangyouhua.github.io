@@ -692,7 +692,7 @@ var load = [
     {
         Index: 1,
         Name: 'JPart Core',
-        href: './jpart/_partcore.js',
+        href: './jpart/partcore.js',
         Link: 'The Core of JPart.',
         Edition: '2.0.1',
         Date: '2021.03.10'
