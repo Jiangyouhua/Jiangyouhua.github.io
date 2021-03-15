@@ -190,7 +190,7 @@ var develops = [
         id: '#jpart',
         split: true,
         content: `Code: <a href='https://github.com/Jiangyouhua/Jiangyouhua.github.io/tree/main/jpart'>The code is in github, click to browse.</a>
-        Article: <a href='./jpart.html'><b>Welcome to use JPart</b></a>
+        Article: <a href='./jpart.html'><b style='font-size:36px'>Welcome to use JPart</b></a>
 
         JPart is a front-end framework for Javascript. Its goal is to use the method of assembling parts to construct web pages, so as to realize the simple, fast and efficient front-end development, and avoid repetitive and meaningless work. This site is developed based on JPart.
         
@@ -354,7 +354,7 @@ var jads = [
 ];
 
 var navigations = [
-    { title: "Home", href: './index.html' },
+    { title: "Jpart", href: './jpart.html' },
     { title: "Guide", href: './guide.html?searchValue=I am the search value of URL' },
     { title: "Practise", href: './practise.html' },
     { title: "Download", href: './download.html' },
