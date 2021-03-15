@@ -32,6 +32,21 @@ class JNavigation extends JList {
         this.Map({textColor: textColor, fontSize: fontSize, lineHeight: lineHeight});
     }
 
+    _dataFromString(s) {
+        this._data = [];
+        let arr = s.split('|');
+        let a = [];
+        for(var i = 0; i < arr.length; i++){
+            let word = arr[i].trim();
+            let obj = {
+                title: word,
+                href: i == 0 ? './index.html' : `./${word.toLowerCase().replace(/\s/g, '_')}.html`,
+            }
+            a.push(obj);
+        }
+        this._data = a;
+    }
+
     _style() {
         return `
         #${this._id}{

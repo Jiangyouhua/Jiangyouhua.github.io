@@ -53,6 +53,7 @@ class JArticle extends Part {
     }
 
     _dataFromString(s) {
+        this._data = {};
         this._data.title = s;
     }
 
@@ -99,7 +100,7 @@ class JArticle extends Part {
     }
 
     _layout() {
-        if(!isObject(this._data)){
+        if(!jpart.isObject(this._data)){
             console.log("The data of JArticle does not match the expectation, the expectation is Object.");
             return;
         }

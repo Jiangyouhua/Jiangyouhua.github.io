@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset='UTF-8' />
+<script src='./jpart/partcore.js'></script>
+<script src='./jpart/jlogo.js'></script>
+<script src='./jpart/jslideshow.js'></script>
+<script src='./jpart/jlist.js'></script>
+<script src='./jpart/jnavigation.js'></script>
+<script src="./jpart/jarticle.js"></script>
+<script src='./file/data.js'></script>
+<link rel='stylesheet' href="./file/part.css">
+<link rel="stylesheet" href="https://fonts.font.im/css?family=Abel|Indie+Flower|lixukexingshu;">
+<title>JPart</title>
+<body>
+    <div class="head">
+        <div data-source='${logo}' data-part='JLogo(true, , , , "48px")'></div>
+        <div data-source="${jads}" data-part='JSlideshow(,,,,,,"210px", "26px")'></div>
+    </div>
+    <div class="navigation">
+        <div data-source="${navigations}" data-fore='navigationActive()' data-part='JNavigation()'></div>
+    </div>
+    <div class="content">
+        <div data-source="${about}" data-part="JArticle(3)"></div>
+        <br><br>
+        <hr />
+        <div data-source="${tail}" data-part="JArticle(, 'h3', 'h4', 'center', 'center')"></div>
+    </div>
+</body>
+
+</html>

@@ -7,7 +7,10 @@
  * 3 titleSize ='h3', title size.
  * 4 titleAlign ='left', title alignment.
  * 5 contentAlign ='left', content alignment.
- * 6 imageRadius = '4px', the image has rounded corners.
+ * 6 imageHeight = '200px', image height.
+ * 7 imageRadius = '4px', the image has rounded corners.
+ * 8 splitHeight = '20px', split heigth.
+ * 9 splitLine = '1px', split line height.
  */
 
 class JPreviews extends Part {
@@ -22,7 +25,7 @@ class JPreviews extends Part {
         * 6 imageRadius = '4px', the image has rounded corners.`,
         image: '',
         href: ''
-    },{
+    }, {
         title: 'JLogo',
         content: `* 1 isJustified = false, whether the two ends are aligned.
         * 2 backgroundColor = "#222", background color.
@@ -37,7 +40,7 @@ class JPreviews extends Part {
         * 11 contentColor ='#888', content color.`,
         image: '',
         href: ''
-    },{
+    }, {
         title: 'JSlideshow',
         content: `* 1 duration = 3000, the switching time, in milliseconds.
         * 2 titleColor ='white', title color.
@@ -50,7 +53,7 @@ class JPreviews extends Part {
         * 9 titleFontFamily ='Indie Flower', the font of the label.`,
         image: '',
         href: ''
-    },{
+    }, {
         title: 'JArticle',
         content: ` * 1 columnNumber = 1, number of sub-column.
         * 2 titleTag ='h1', title size.
@@ -63,7 +66,7 @@ class JPreviews extends Part {
         href: ''
     }]
 
-    constructor(columnNumber, contentLine,  titleSize, titleAlign, contentAlign, imageRadius) {
+    constructor(columnNumber, contentLine, titleSize, titleAlign, contentAlign, imageHeight, imageRadius, splitHeight, splitLine) {
         super();
 
         this.columnNumber = 4;
@@ -71,42 +74,76 @@ class JPreviews extends Part {
         this.titleSize = 'h3';
         this.titleAlign = 'left';
         this.contentAlign = 'left';
-        this.imageRadius = '4px';
+        this.imageHeight = '200px';
+        this.imageRadius = '10px';
+        this.splitHeight = '20px';
+        this.splitLine = '1px';
 
         this.Map({
             columnNumber: columnNumber,
             contentLine: contentLine,
+            imageHeight: imageHeight,
             titleSize: titleSize,
             titleAlign: titleAlign,
             contentAlign: contentAlign,
             imageRadius: imageRadius,
+            splitHeight: splitHeight,
+            splitLine: splitLine,
         })
     }
 
     _dataFromString(s) {
-        this._data[0].title = s;
+        this._data = [];
+        let arr = s.split('|');
+        for(let i = 0; i < arr.length; i++){
+            let str = arr[i].trim();
+            let item = {title: str};
+            this._data.push(item);
+        }
     }
 
-    _style(){
+    _style() {
+        let w = (100 - this.columnNumber * 2) / this.columnNumber;
         return `
-        .${this._getClass('preview')} {
+        #${this._id} a {
+            text-decoration: none;
+        }
+
+        #${this._id} .${this._getClass('preview')} {
             display: inline-block;
-            width: ${92 / this.columnNumber}%;
-            margin: 1%;
+            width: ${w}%;
             vertical-align: top;
+            margin: 0 1%;
         }
-        .${this._getClass('preview')} img {
+
+        #${this._id} .${this._getClass('image')} {
+            background-position: 50% 50%; background-repeat:no-repeat; 
+            background-size:100%;
+            -moz-background-size:100%;
             display: inline-block;
-            width: 100%;
+            vertical-align: middle;
             border-radius: ${this.imageRadius};
+            width: 100%;
+            height: ${this.imageHeight};
+            background-color: #fff;
         }
-        .${this._getClass('preview')} .title {
+
+        #${this._id} hr.${this._getClass('split')} {
+            border-top: ${this.splitLine} #888 dotted;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            margin: ${this.splitHeight} 0;
+        }
+
+        #${this._id} .${this._getClass('preview')} .title {
             text-align: ${this.titleAlign};
             overflow: hidden;
             text-overflow:ellipsis;
             white-space: nowrap;
         }
-        .${this._getClass('preview')} .content {
+
+        #${this._id} .${this._getClass('preview')} .content {
             display: block;
             text-align: ${this.contentAlign};
             padding: 0;
@@ -120,33 +157,46 @@ class JPreviews extends Part {
     }
 
     _layout() {
-        if(!isArray(this._data)){
+        if (!jpart.isArray(this._data)) {
             console.log("The data of JPreviews does not match the expectation, the expectation is Array.");
             return;
         }
 
         let div = this._html;
-        for(let i = 0; i < this._data.length; i++) {
+        for (let i = 0; i < this._data.length; i++) {
             let obj = this._data[i];
             let d = new Html();
+
+            if (!!obj.href){
+                d.setTag('a');
+            }
+
             div.addContent(d);
             d.setAttr('id', this._getId('preview', i));
             d.addClass(this._getClass('preview'));
 
-            if (!!obj.image){
-                let img = new Html('img', '', {src: obj.image})
-                d.addContent(img);
+            if (!!obj.image) {
+                let image = new Html('span', '', { id: this._getId('image') }, [this._getClass('image')]);
+                d.addContent(image).addContent(' ');
+                image.setStyle('backgroundImage', `url('${obj.image}')`);
+                delete obj.image;
             }
-            if (!!obj.title){
+            if (!!obj.title) {
                 let title = new Html(this.titleSize, obj.title);
                 title.addClass('title');
                 d.addContent(title)
+                delete obj.title;
             }
             if (!!obj.content) {
-                let content = new Html('div', obj.content);
+                let content = new Html('pre', obj.content);
                 content.addClass('content');
                 d.addContent(content);
+                delete obj.content;
             }
+            
+            d.addContent(new Html('hr', '', {}, [this._getClass('split')]));
+
+            d.setAttrWithObject(obj);
         }
     }
 }

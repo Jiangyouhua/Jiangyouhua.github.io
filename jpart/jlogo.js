@@ -13,6 +13,7 @@
  * 9 contentSize ='', the size of the content text.
  * 10 contentFont ='', title font.
  * 11 contentColor ='#888', content color.
+ * 12 iconRadius = '4px', icon border radius.
  */
 
 class JLogo extends Part {
@@ -23,7 +24,7 @@ class JLogo extends Part {
         image: ''
     }
 
-    constructor(isJustified, backgroundColor, borderRadius, titleSplit, titleSize, titleFont, titleForeColor, titleHindColor, contentSize, contentFont, contentColor) {
+    constructor(isJustified, backgroundColor, borderRadius, titleSplit, titleSize, titleFont, titleForeColor, titleHindColor, contentSize, contentFont, contentColor, iconRadius) {
         super();
 
         this.isJustified = false;
@@ -34,9 +35,10 @@ class JLogo extends Part {
         this.titleFont = 'Abel';
         this.titleForeColor = '#FF7D00';
         this.titleHindColor = '#00ffd4';
-        this.contentSize = '12px';
+        this.contentSize = titleSize == ''? '12px' : jpart.operateSize(titleSize, 2, 3);
         this.contentFont = '';
         this.contentColor = '#888';
+        this.iconRadius = '4px';
 
         this.Map({
             isJustified: isJustified,
@@ -49,12 +51,23 @@ class JLogo extends Part {
             titleHindColor: titleHindColor,
             contentSize: contentSize,
             contentFont: contentFont,
-            contentColor: contentColor
+            contentColor: contentColor,
+            iconRadius: iconRadius
         });
     }
 
     _dataFromString(s) {
-        this._data.title = s;
+        let arr = s.split('|');
+        this._data = {};
+        this._data.title = arr.shift().trim();
+        if (!jpart.isArray(arr)){
+            return;
+        }
+        this._data.content = arr.shift().trim();
+        if (!jpart.isArray(arr)){
+            return;
+        }
+        this._data.image = arr.shift().trim();
     }
 
     _style() {
@@ -69,11 +82,6 @@ class JLogo extends Part {
             s = `font-size: ${this.titleSize};`;
         }
 
-        let m = '';
-        if (!!this._data.image) {
-            m = `vertical-align: middle;`;
-        }
-
         return `
         #${this._id} {
             ${t}
@@ -86,10 +94,16 @@ class JLogo extends Part {
             font-family: ${this.titleFont};
             display: table-cell;
         }
+
         #${this._id} .${this._getClass('icon')}{
-            ${m}
-            width: ${!this.titleSize ? '14px' : this.titleSize};
+            background-position: 50% 50%; background-repeat:no-repeat; 
+            background-size:100% 100%;
+            -moz-background-size:100% 100%;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: ${this.iconRadius};
         }
+
         #${this._id} .${this._getClass('slogan')} {
             display: table-cell;
             text-align: right;
@@ -99,17 +113,15 @@ class JLogo extends Part {
         }
         #${this._id} .${this._getClass('fore')} {
             color: ${this.titleForeColor};
-            ${m}
         }
         #${this._id} .${this._getClass('back')} {
             color:${this.titleHindColor};
-            ${m}
         }
         `;
     }
 
     _layout() {
-        if(!isObject(this._data)){
+        if(!jpart.isObject(this._data)){
             console.log("The data of JLogo does not match the expectation, the expectation is Object.");
             return;
         }
@@ -117,10 +129,19 @@ class JLogo extends Part {
         let div = this._html
         div.setTag('span')
         let logo = new Html('span', '', { id: this._getId('logo') }, [this._getClass('logo')]);
+        div.addContent(logo);
 
         if (!!this._data.image) {
-            let image = new Html('img', '', { src: this._data.image, id: this._getId('icon'), height: this.titleSize }, [this._getClass('icon')]);
-            logo.addContent(image).addContent(' ');
+            let icon = new Html('span',' ', {id: this._getId('icon')}, [this._getClass('icon')]);
+            logo.addContent(icon).addContent(' ');
+            icon.setStyle('backgroundImage', `url('${this._data.image}')`);
+
+            let size = this.titleSize;
+            jpart.imageSize(this._data.image, function(w, h) {
+                let width = jpart.operateSize(size, (w/h), 2);
+                icon.setStyle('width', width);
+                icon.setStyle('height', size);
+            })
             delete this._data.image;
         }
         if (!!this._data.title) {
@@ -132,11 +153,11 @@ class JLogo extends Part {
                 this.titleSplit = s.length - 1;
             }
             let head = new Html('span', s.substring(0, this.titleSplit), { id: this._getId('fore') }, [this._getClass('fore')]);
-            let foot = new Html('spen', s.substring(this.titleSplit), { id: this._getId('back') }, [this._getClass('back')]);
+            let foot = new Html('span', s.substring(this.titleSplit), { id: this._getId('back') }, [this._getClass('back')]);
             logo.addContent(head).addContent(foot);
             delete this._data.title;
         }
-        div.addContent(logo);
+
         if (!!this._data.content) {
             let slogan = new Html('div', this._data.content, { id: this._getId('slogan') }, [this._getClass('slogan')]);
             div.addContent(slogan);

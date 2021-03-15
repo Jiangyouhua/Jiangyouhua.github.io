@@ -43,11 +43,16 @@ class JPaging extends Part {
     }
 
     _dataFromString(s) {
-        this._data.count = parseInt(s);
+        this._data = {}
+        let arr = s.split('|');
+        this._data.count = parseInt(arr[0].trim());
+        if (arr.length < 1){
+            this._data.position = arr[1];
+        }
     }
 
     _layout() {
-        if(!isObject(this._data)){
+        if(!jpart.isObject(this._data)){
             console.log("The data of JPaging does not match the expectation, the expectation is Object.");
             return;
         }

@@ -52,7 +52,18 @@ class JList extends Part {
     }
 
     _dataFromString(s) {
-        this._data[0].title = s;
+        this._data = [];
+        let arr = s.split('|');
+        let a = [];
+        for(var i = 0; i < arr.length; i++){
+            let word = arr[i].trim();
+            let obj = {
+                title: word,
+                href: `#${word.replace(/\s/g, '_')}`
+            }
+            a.push(obj);
+        }
+        this._data = a;
     }
 
     _style() {
@@ -70,7 +81,7 @@ class JList extends Part {
     }
 
     _layout() {
-        if(!isArray(this._data)){
+        if(!jpart.isArray(this._data)){
             console.log("The data of JList does not match the expectation, the expectation is Array.");
             return;
         }

@@ -22,30 +22,33 @@ class JEditor extends Part {
     }
 
     _dataFromString(s) {
-        this._data[0].title = s;
+        this._data = [{title: s}];
     }
 
     _style() {
         return `
+        table#${this._id}{
+            width:100%;
+        }
         #${this._id} .editor {
             font-family: "Lucida Console", Courier, monospace;
             background-color: ${this.darkCodeStyle ? '#111' : '#eee'};
             border-radius: 5px;
             color: ${this.darkCodeStyle ? '#eee' : '#111'};
-            padding: 10px 20px; 
+            padding: 1% 2%; 
             display: inline-block;
-            width: 49%;
+            width: 96%;
             height: 350px;
             vertical-align: top;
             overflow: auto;
         }
         #${this._id} .output {
             display: inline-block;
-            width: 49%;
+            width: 96%;
             border: #888 1px solid;
             height: 350px;
             border-radius: 5px;
-            padding: 10px 20px; 
+            padding: 1% 2%; 
             vertical-align: top;
             overflow: auto;
             float: right;
@@ -111,32 +114,43 @@ class JEditor extends Part {
     }
 
     _layout() {
-        let div = this._html;
-        div.addClass("content");
-        div.addContent('<br><br>')
-        div.addContent(new Html('p', 'Please enter your JPart application code in the edit area on the left, click the confirmation above, and the output area on the right will display the content after its application.'))
-        div.addContent(new Html("button", "Empty", { onclick: `${this._id}.emptyEditor()` }, ['empty']));
-        div.addContent(new Html("button", "Apply", { onclick: `${this._id}.applyEditor()` }, ['apply']));
+        let table = this._html;
+        table.setTag('table')
+        table.addClass("content");
 
-        let d = new Html()
-        div.addContent(d);
+        let td = new Html('td');
+        td.setAttr('colspan', 3);
+        let tr = new Html('tr', td)
+        table.addContent(tr);
+
+        td.addContent(new Html('p', 'Please enter your JPart application code in the edit area on the left, click the confirmation above, and the output area on the right will display the content after its application.'))
+        td.addContent(new Html('br'));
+        td.addContent(new Html("button", "Empty", { onclick: `${this._id}.emptyEditor()` }, ['empty']));
+        td.addContent(new Html("button", "Apply", { onclick: `${this._id}.applyEditor()` }, ['apply']));
+        td.addContent(new Html('br'));td.addContent(new Html('br'));
+
+        let left = new Html('td', this._editor, {width: '49%'});
+        let right = new Html('td', this._output);
+        tr = new Html('tr');
+        table.addContent(tr);
+        tr.addContents(left, new Html('td', '&nbsp;', {width: '2%'}), right);
+        table.addContent(tr);
 
         this._editor.addClass('editor');
         this._editor.setAttr('contenteditable', "true");
         this._editor.setAttr('onkeyup', `${this._id}.onKeyUp()`)
-
-        d.addContent(this._editor);
         this._output.addClass('output');
-        d.addContent(this._output);
+        
+        td = new Html('td')
+        td.addClass('buttons');
+        tr = new Html('tr', td);
+        table.addContent(td);
 
         let arr = ['JArticle', 'JGuide', 'JList', 'JLogo', 'JNavigation', 'JPaging', 'JPreviews', 'JSlideshow', 'JTable'];
-        let bs = new Html();
-        bs.addClass('buttons');
-        div.addContent(bs);
         for (let i = 0; i < arr.length; i++) {
             let b = new Html('button', arr[i]);
             b.setAttr('onclick', `${this._id}.appendPart('${arr[i]}')`)
-            bs.addContent(b);
+            td.addContent(b);
         }
     }
 

@@ -37,7 +37,7 @@ class JGuide extends Part {
     }
 
     _dataFromString(s) {
-        this._data[0].title = s;
+        this._data = [{title: s}];
     }
 
     _style() {
@@ -87,7 +87,7 @@ class JGuide extends Part {
     }
 
     _layout() {
-        if(!isArray(this._data)){
+        if(!jpart.isArray(this._data)){
             console.log("The data of JGuide does not match the expectation, the expectation is Array.");
             return;
         }
@@ -124,7 +124,7 @@ class JGuide extends Part {
                 delete obj.code;
             }
             if (!!obj.children) {
-                let t = this._operateNumbersInString(this.titleSize, 1)
+                let t = jpart.operateSize(this.titleSize, 1)
                 let d = new JGuide(t);
                 d.setData(obj.children);
                 block.addContent(d.toHtml());

@@ -2,14 +2,16 @@
  * JTable, 表格
  * Jiang Youhua 2021.03.10
  * Edition 2.0.1
- * 1 showHead = true, whether to show the header;
- * 2 headBackground ='#ddd', table against background.
- * 3 trEvenBackground ='#eee', form row background.
- * 4 trOddBackground ='#fff', table double row background.
- * 5 headColor ='#000', the head color.
- * 6 bodyColor ='#000', the color of the table body.
- * 7 horizontalLine ='#bbb', horizontal line.
- * 8 verticalLine ='#bbb', vertical line.
+ * 1 href = 'Link', the href attribute is added to this value； 
+ * 2 showHead = true, whether to show the header;
+ * 3 headBackground ='#ddd', table against background.
+ * 4 trEvenBackground ='#eee', form row background.
+ * 5 trOddBackground ='#fff', table double row background.
+ * 6 headColor ='#000', the head color.
+ * 7 bodyColor ='#000', the color of the table body.
+ * 8 horizontalLine ='#bbb', horizontal line.
+ * 9 verticalLine ='#bbb', vertical line.
+ * 10 tdHeight = '50px', td height.`
  */
 
 class JTable extends Part {
@@ -80,8 +82,8 @@ class JTable extends Part {
         })
     }
 
-    _dataFromString(str) {
-        return [{ title: str }];
+    _dataFromString(s) {
+        this._data = [{title: s}];
     }
 
     _style() {
@@ -124,7 +126,7 @@ class JTable extends Part {
     }
 
     _layout() {
-        if(!isArray(this._data)){
+        if(!jpart.isArray(this._data)){
             console.log("The data of JTable does not match the expectation, the expectation is Array.");
             return;
         }

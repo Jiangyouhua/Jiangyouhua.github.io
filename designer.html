@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset='UTF-8' />
+<script src='./jpart/partcore.js'></script>
+<script src='./jpart/jlogo.js'></script>
+<script src='./jpart/jslideshow.js'></script>
+<script src='./jpart/jlist.js'></script>
+<script src='./jpart/jnavigation.js'></script>
+<script src="./jpart/jarticle.js"></script>
+<script src="./jpart/jpreviews.js"></script>
+<script src='./file/data.js'></script>
+<link rel='stylesheet' href="./file/part.css">
+<link rel="stylesheet" href="https://fonts.font.im/css?family=Abel|Indie+Flower|lixukexingshu;">
+<title>JPart</title>
+<script>
+    function initPage(data){
+        let page = location.hash.substring(1) + '.html';
+        loadPage(page);
+        return data;
+    }
+    function loadPage(page){
+        let p = document.getElementById('loadPage');
+        p.dataset.source = `./${page}`;
+        jpart.Format(p, true);
+    }
+</script>
+<style>
+    #designer .JPreviews_image{
+        cursor: pointer;
+        border: 0;
+    }
+
+    #designer .JPreviews_image:hover{
+        border: 1px blue solid;
+    }
+</style>
+<body>
+    <div class="head">
+        <div data-source="Jiang Youhua | I am God in my design world. | ./file/jyh.jpg" data-part='JLogo(true, , , 5, "48px")'></div>
+    </div>
+    <div class="navigation">
+        <div data-source="Home | I'm | Designer | Programmer | Policy" data-fore='navigationActive()' data-part='JNavigation()'></div>
+    </div>
+    <div class="content">
+        <br><br>
+        <p>* Shown are personal works, not works by the company where they work.</p>
+        <br>
+        <br>
+        <div id="designer" data-source='${designs}' data-fore='initPage()' data-part="JPreviews(5,,,,'center', '200px',,'75px')"></div>
+        <div id="loadPage" data-source="./logo.html"></div>
+        <div data-source="${foot}" data-part="JArticle(, 'h3', 'h4', 'center', 'center')"></div>
+    </div>
+</body>
+
+</html>

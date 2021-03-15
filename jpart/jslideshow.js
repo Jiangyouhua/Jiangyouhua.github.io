@@ -68,7 +68,13 @@ class JSlideshow extends Part {
     }
 
     _dataFromString(s) {
-        this._data[0].title = s;
+        this._data = [];
+        let arr = s.split('|');
+        let a = [];
+        for(var i = 0; i < arr.length; i++){
+            a.push({title: arr[i].trim()});
+        }
+        this._data = a;
     }
 
     _style() {
@@ -105,7 +111,7 @@ class JSlideshow extends Part {
     }
 
     _layout() {
-        if(!isArray(this._data)){
+        if(!jpart.isArray(this._data)){
             console.log("The data of JSlideshow does not match the expectation, the expectation is Array.");
             return;
         }
