@@ -12,6 +12,20 @@ body, h1, h2, h3, h4, h5, h6 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif；
 }
 
+body>*>*{
+    display: inline-grid;
+    width: 1152px;
+    text-align: left;
+}
+
+body>*{
+    text-align: center;
+}
+
+span{
+    display: inline;
+}
+
 pre{
     white-space:pre-wrap;
     white-space:-moz-pre-wrap;
@@ -26,18 +40,18 @@ textarea{
 }
 
 .head {
-    padding: 20px 10%;
+    padding: 20px 0;
     background-color: #222;
     color: #eee;
 }
 
 .navigation {
-    padding: 0 10%;
+    padding: 0;
     background-color: rgb(60, 214, 214);
 }
 
 .content {
-    padding: 0 10%;
+    padding: 0 0;
 }
 
 table.content {

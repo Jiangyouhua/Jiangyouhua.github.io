@@ -14,19 +14,26 @@
 <script src="./jpart/jeditor.js"></script>
 <script src='./file/data.js'></script>
 <link rel='stylesheet' href="./file/part.css">
-<link rel="stylesheet" href="https://fonts.font.im/css?family=Abel|Indie+Flower|lixukexingshu;" >
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+<link rel="stylesheet" href="https://fonts.font.im/css?family=Abel|Indie+Flower|lixukexingshu;">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
 <title>JPart</title>
+
 <body>
-    <div data-source='./file/head.html'></div>
-    <br>
-    <div data-part="JEditor()"></div>
-    <div class="content">
-        <br><br>
-                <hr />
-                <div data-source="${tail}" data-part="JArticle(1, 'h3', 'h4', 'center', 'center')"></div>
+    <div class="head">
+        <div class="logo" data-source='${logo}' data-part='JLogo().Map({isJustified: true, titleSize: "48px"})'></div>
+    </div>
+    <div class="navigation">
+        <div data-source="${navigations}" data-fore='navigationActive()' data-part='JNavigation()'></div>
+    </div>
+    <div>
+        <br>
+        <div data-part="JEditor()"></div>
+        <div class="content">
+            <br><br>
+            <hr />
+            <div data-source="${tail}" data-part="JArticle(1, 'h3', 'h4', 'center', 'center')"></div>
+        </div>
     </div>
 </body>
 

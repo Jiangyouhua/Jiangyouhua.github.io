@@ -93,6 +93,7 @@ class JLogo extends Part {
             ${s}
             font-family: ${this.titleFont};
             display: table-cell;
+            text-align:left;
         }
 
         #${this._id} .${this._getClass('icon')}{
@@ -102,6 +103,7 @@ class JLogo extends Part {
             display: inline-block;
             vertical-align: middle;
             border-radius: ${this.iconRadius};
+            margin-bottom: ${jpart.operateSize((!this.titleSize ? '16px' : this.titleSize), 4, 3)};
         }
 
         #${this._id} .${this._getClass('slogan')} {

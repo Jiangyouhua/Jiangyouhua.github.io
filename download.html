@@ -19,11 +19,16 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
 <title>JPart</title>
 <body>
-    <div data-source='./file/head.html'></div>
+    <div class="head">
+        <div class="logo" data-source='${logo}' data-part='JLogo().Map({isJustified: true, titleSize: "48px"})'></div>
+    </div>
+    <div class="navigation">
+        <div data-source="${navigations}" data-fore='navigationActive()' data-part='JNavigation()'></div>
+    </div>
     <div class="content">
         <br>
         <p>Please click to download the content you need.</p>
-        <br>
+        <br><br>
         <div data-source="${load}" data-part='JTable()'></div>
         <div data-source="${tail}" data-part="JArticle(1, 'h3', 'h4', 'center', 'center')"></div>
     </div>
