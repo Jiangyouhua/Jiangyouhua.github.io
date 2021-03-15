@@ -975,11 +975,5 @@ class Web {
 // Main.
 let jpart = new Web();
 window.onload = function () {
-<<<<<<< HEAD:jpart/partcore.js
-    jpart.Format(document.body);
+        jpart.Format(document.body);
 };
-=======
-    let web = new Web();
-    web.Format(document.body);
-};
->>>>>>> 866aa5fd33768f3ae6ae5f74e14b7346aacb69dc:jpart/_partcore.js
